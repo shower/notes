@@ -1,15 +1,8 @@
 /**
  * @fileOverview
  * Presenter notes plugin for shower.
- *
- * @example
- * modules.require(['shower', 'plugin.Notes'], function (shower, Notes) {
- *     shower.ready(function () {
- *          var notes = new Notes(shower);
- *     });
- * });
  */
-modules.define('plugin.Notes', [
+modules.define('shower-notes', [
     'util.extend'
 ], function (provide, extend) {
 
@@ -89,4 +82,8 @@ modules.define('plugin.Notes', [
     });
 
     provide(Notes);
+});
+
+modules.require(['shower'], function (shower) {
+    shower.plugins.add('shower-notes');
 });

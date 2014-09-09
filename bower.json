@@ -2,12 +2,12 @@
   "name": "shower-notes",
   "version": "0.0.1",
   "license": "MIT",
-  "main": "plugin.Notes.js",
+  "main": "shower-notes.js",
   "ignore": [
     "*",
     "!License.md",
     "!Readme.md",
-    "!plugin.Notes.js",
+    "!shower-notes.js",
     "!bower.json"
   ],
   "keywords": [
