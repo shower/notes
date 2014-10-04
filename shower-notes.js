@@ -19,8 +19,6 @@ modules.define('shower-notes', [
         options = options || {};
         this._shower = shower;
         this._notesSelector = options.selector || 'footer';
-
-        this.init();
     }
 
     extend(Notes.prototype, /** @lends plugin.Notes.prototype */{
