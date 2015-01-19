@@ -24,7 +24,9 @@ modules.define('shower-notes', [
     extend(Notes.prototype, /** @lends plugin.Notes.prototype */{
 
         init: function () {
-            this._setupListeners();
+            if (typeof console != 'undefined') {
+                this._setupListeners();
+            }
         },
 
         destroy: function () {
@@ -54,7 +56,11 @@ modules.define('shower-notes', [
         },
 
         clear: function () {
-            if (this._shower.container.isSlideMode() && !this._shower.options.debugMode) {
+            var shower = this._shower;
+            if (typeof console.clear != 'undefined' &&
+                shower.container.isSlideMode() &&
+                !shower.options.debug) {
+
                 console.clear();
             }
         },
