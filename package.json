@@ -1,7 +1,7 @@
 {
   "name": "shower-notes",
   "description": "Notes plugin for Shower HTML presentation engine",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "author": {
     "name": "Vadim Makeev",
     "url": "http://pepelsbey.com/"
@@ -29,6 +29,6 @@
   "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-bump": "0.0.16",
-    "load-grunt-tasks": "^0.6.0"
+    "load-grunt-tasks": "^2.0.0"
   }
 }
