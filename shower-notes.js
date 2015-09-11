@@ -6,6 +6,8 @@ modules.define('shower-notes', [
     'util.extend'
 ], function (provide, extend) {
 
+    var DEFAULT_NOTE_SELECTOR = 'footer';
+
     /**
      * @class
      * Presenter notes plugin for shower.
@@ -18,19 +20,15 @@ modules.define('shower-notes', [
     function Notes (shower, options) {
         options = options || {};
         this._shower = shower;
-        this._notesSelector = options.selector || 'footer';
+        this._notesSelector = options.selector || DEFAULT_NOTE_SELECTOR;
+
+        if (this._hasConsole()) {
+            this._setupListeners();
+        }
     }
 
     extend(Notes.prototype, /** @lends plugin.Notes.prototype */{
-
-        init: function () {
-            if (typeof console != 'undefined') {
-                this._setupListeners();
-            }
-        },
-
         destroy: function () {
-            this.clear();
             this._clearListeners();
             this._shower = null;
         },
@@ -38,17 +36,17 @@ modules.define('shower-notes', [
         show: function () {
             this.clear();
 
-            var shower = this._shower,
-                slide = shower.player.getCurrentSlide(),
-                slideLayout = slide.getLayout(),
-                notes = slideLayout.getElement().querySelector(this._notesSelector);
+            var shower = this._shower;
+            var slide = shower.player.getCurrentSlide();
+            var slideLayout = slide.getLayout();
+            var notes = slideLayout.getElement().querySelector(this._notesSelector);
 
             if (notes && notes.innerHTML) {
                 console.info(notes.innerHTML.replace(/\n\s+/g, '\n'));
             }
 
-            var currentSlideNumber = shower.player.getCurrentSlideIndex(),
-                nextSlide = shower.get(currentSlideNumber + 1);
+            var currentSlideNumber = shower.player.getCurrentSlideIndex();
+            var nextSlide = shower.get(currentSlideNumber + 1);
 
             if (nextSlide) {
                 console.info('NEXT: ' + nextSlide.getTitle());
@@ -57,12 +55,14 @@ modules.define('shower-notes', [
 
         clear: function () {
             var shower = this._shower;
-            if (typeof console.clear != 'undefined' &&
-                shower.container.isSlideMode() &&
-                !shower.options.debug) {
-
+            if (typeof console.clear !== 'undefined' &&
+                shower.container.isSlideMode()) {
                 console.clear();
             }
+        },
+
+        _hasConsole: function () {
+            return typeof console !== 'undefined';
         },
 
         _setupListeners: function () {
@@ -76,6 +76,9 @@ modules.define('shower-notes', [
         },
 
         _clearListeners: function () {
+            if (!this._hasConsole()) {
+                return;
+            }
             this._showerListeners.offAll();
             this._playerListeners.offAll();
         },
