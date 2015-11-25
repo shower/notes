@@ -2,7 +2,7 @@
  * @fileOverview
  * Presenter notes plugin for shower.
  */
-modules.define('shower-notes', [
+shower.modules.define('shower-notes', [
     'util.extend'
 ], function (provide, extend) {
 
@@ -91,6 +91,6 @@ modules.define('shower-notes', [
     provide(Notes);
 });
 
-modules.require(['shower'], function (shower) {
-    shower.plugins.add('shower-notes');
+shower.modules.require(['shower'], function (sh) {
+    sh.plugins.add('shower-notes');
 });
