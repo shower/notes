@@ -1,10 +1,10 @@
 {
   "name": "shower-notes",
   "description": "Notes plugin for Shower HTML presentation engine",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "author": {
-    "name": "Vadim Makeev",
-    "url": "http://pepelsbey.net/"
+    "name": "Denis Hananein",
+    "url": "http://zloy.me"
   },
   "homepage": "https://github.com/shower/notes",
   "repository": {

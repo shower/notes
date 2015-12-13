@@ -38,8 +38,7 @@ shower.modules.define('shower-notes', [
 
             var shower = this._shower;
             var slide = shower.player.getCurrentSlide();
-            var slideLayout = slide.getLayout();
-            var notes = slideLayout.getElement().querySelector(this._notesSelector);
+            var notes = slide.layout.getElement().querySelector(this._notesSelector);
 
             if (notes && notes.innerHTML) {
                 console.info(notes.innerHTML.replace(/\n\s+/g, '\n'));
