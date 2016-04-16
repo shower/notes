@@ -28,7 +28,7 @@
   ],
   "devDependencies": {
     "grunt": "^1.0.1",
-    "grunt-bump": "0.7.0",
+    "grunt-bump": "0.7.2",
     "load-grunt-tasks": "^3.5.0"
   }
 }
