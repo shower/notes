@@ -1,6 +1,6 @@
 # Notes plugin for Shower
 
-Plugin for the [Shower](https://github.com/shower/shower/) presentation engine. See [documentation](https://github.com/shower/shower/tree/master/docs) for details. Follow [@shower_me](https://twitter.com/shower_me) for support and updates, [file an issue](https://github.com/shower/shower/issues/new) if you have any.
+❌ Merged into [shower/core](https://github.com/shower/core) and no longer maintaned. See [lib/modules](https://github.com/shower/core/tree/master/lib/modules).
 
 ---
 Licensed under [MIT License](http://en.wikipedia.org/wiki/MIT_License), see [license page](https://github.com/shower/shower/wiki/MIT-License) for details.
